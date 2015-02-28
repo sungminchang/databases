@@ -6,7 +6,7 @@ var db = require('../db');
 module.exports = {
   messages: {
     get: function (callback) {
-      db.connection.query('SELECT * FROM messages', function(error, rows, fields) {
+      db.connection.query('SELECT * FROM messages ORDER BY createdAt ASC', function(error, rows, fields) {
         if (error) console.log(error);
         // console.log(rows, fields);
         callback(rows);

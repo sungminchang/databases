@@ -1,12 +1,13 @@
-CREATE DATABASE chat;
+-- CREATE DATABASE chat;
 
 USE chat;
 
 CREATE TABLE messages (
+  messageId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   username varchar(255),
   msgtxt varchar(255),
-  roomname varchar(255)
-  -- createdAt DATETIME()
+  roomname varchar(255),
+  createdAt timestamp
 );
 
 CREATE TABLE users (
@@ -20,11 +21,6 @@ CREATE TABLE rooms (
   roomname varchar(255)
   -- roomname
 );
-
-/* Create other tables and define schemas for them here! */
-
-
-
 
 /*  Execute this file from the command line by typing:
  *    mysql -u root < server/schema.sql
