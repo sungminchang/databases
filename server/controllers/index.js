@@ -8,19 +8,20 @@ module.exports = {
   messages: {
     get: function (req, res) {
       models.messages.get(function(rows) {
-        console.log('Get method');
+        console.log(rows);
+        utils.sendResponse(res, rows, 200);
         // send the results back in the response
       });
     }, // a function which handles a get request for all messages
     post: function (req, res) {
-      console.log('Entered Post Request Controller');
+      console.log('Entered Messages Post Request Controller');
       // get the data from the request
       utils.collectData(req, function(dataObj) {
-        console.log('Data collected from Post request');
+        console.log('Data collected from Messages Post request');
         // call models.messages.post() method (insert into database)
         models.messages.post(dataObj, function(results) {
           // respond
-          console.log('post complete!');
+          console.log('messages post complete!');
           utils.sendResponse(res, results, 201);
         });
       });
@@ -35,7 +36,20 @@ module.exports = {
   users: {
     // Ditto as above
     get: function (req, res) {},
-    post: function (req, res) {}
+    post: function (req, res) {
+      console.log('Entered Users Post Request Controller');
+      // get the data from the request
+      utils.collectData(req, function(dataObj) {
+        console.log('Data collected from User Post request');
+        // call models.messages.post() method (insert into database)
+        models.users.post(dataObj, function(results) {
+          // respond
+          console.log('user post complete!');
+          utils.sendResponse(res, results, 201);
+        });
+      });
+
+    }
   }
 };
 

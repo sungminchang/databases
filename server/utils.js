@@ -13,11 +13,21 @@ exports.sendResponse = function(response, data, statusCode){
 };
 
 exports.collectData = function(request, callback){
-  var data = "";
-  request.on('data', function(chunk){
-    data += chunk;
-  });
-  request.on('end', function(){
-    callback(JSON.parse(data));
-  });
+  console.log('collecting data');
+  // console.log('request: ', request);
+  // console.log('callback: ', callback);
+  // console.log('body :', request.body);
+  callback(request.body);
+  // request.on('error', function(error) {
+  //   console.log('error collecting data :', error);
+  // });
+  // var data = "";
+  // request.on('data', function(chunk){
+  //   data += chunk;
+  //   console.log('chunk collected: ', chunk);
+  // });
+  // request.on('end', function(){
+  //   console.log('finished collecting data');
+  //   callback(JSON.parse(data));
+  // });
 };
