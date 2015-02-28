@@ -1,9 +1,24 @@
-CREATE DATABASE chat;
+-- CREATE DATABASE chat;
 
 USE chat;
 
 CREATE TABLE messages (
-  /* Describe your table here.*/
+  username varchar(255),
+  msgtxt varchar(255),
+  roomname varchar(255)
+  -- createdAt DATETIME()
+);
+
+CREATE TABLE users (
+  username varchar(255)
+  -- createdAt DATETIME()
+  -- usernames
+  -- createdAt
+);
+
+CREATE TABLE rooms (
+  roomname varchar(255)
+  -- roomname
 );
 
 /* Create other tables and define schemas for them here! */
